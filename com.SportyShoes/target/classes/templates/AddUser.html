@@ -102,7 +102,31 @@ h2 {
 .box {
 	height: 25px;
 	width: 300px;
+	margin-bottom: 15px;
 }
+.selcls{
+margin-bottom: 10px;
+margin-top: 50px;
+font-family: Geneva, Arial, Helvetica, sans-serif;
+font-weight: bolder;
+
+}
+.selop{
+margin-bottom: 30px;
+margin-top: 30px;
+font-family: Geneva, Arial, Helvetica, sans-serif;
+font-weight: bolder;
+width: 120px;
+width: 300px;
+
+}
+
+.box {
+	height: 25px;
+	width: 300px;
+}
+
+
 </style>
 </head>
 <body>
@@ -117,17 +141,27 @@ h2 {
 	</ul>
 	<div>
 		<div class="input_form">
-			<h2>Add a new Category</h2>
-			<form class=formcss action="SaveCategory" method="post">
+			<h2>Add a new User</h2>
+			<form class=formcss action="SaveUser" method="post" enctype="multipart/form-data">
 				<div class="username">
-					<h6 class="cName">Category Name</h6>
-					<input class="box" type="text" name=name
-						placeholder="Enter the Category"> <br>
+					<h6 class="cName">First Name</h6>
+					    
+						<input class="box" type="text" name=firstname
+						placeholder="Enter the Firstname"  required="required"> <br>
+						<h6 class="cName">Last Name</h6>
+					<input class="box" type="text" name=lastname
+						placeholder="Enter the Last Name"  required="required"> <br>
+						<h6 class="cName">Email</h6>
+						<input class="box" type="email" name=email
+						placeholder="Enter the Email"> <br>
 				</div>
-				<input class="submit" type="submit" value="Save">
+		
+		
+		<input class="submit" type="submit" value="Save">
+		</form>	
 		</div>
 
-		</form>
+		</div>
 		
 </body>
 </html>

@@ -71,4 +71,11 @@ public class LoginControllers {
 		return "User.html";
 		}
 	
+	@PostMapping("/Adduser")
+	public String adduser() {
+		return "AddUser.html";
+		
+		
+	}
+	
 }
