@@ -122,8 +122,8 @@ a {
         <tr th:block th:each="Category : ${listcat}">
            <td th:text="${Category.getID()}"> </td>
            <td th:text="${Category.getName()}"></td>
-           <td><a class="actions">Delete</a></td>
-            <td><a class="actions">Update</a></td>
+           <td><a th:href="@{'deleteCategory/'+${Category.getID()}}"class="actions">Delete</a></td>
+            <td><a th:href="@{'updatecat/'+${Category.getID()}}" class="actions">Update</a></td>
            
         </tr>
 

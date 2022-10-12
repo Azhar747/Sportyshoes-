@@ -115,15 +115,19 @@ a {
 	<table>
 		<tr >
 			<th>SN</th>
-			<th>Category</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Email</th>
 			<th>Delete</th>
 			<th>Update</th>
         </tr>
-        <tr th:block th:each="Category : ${listcat}">
-           <td th:text="${Category.getID()}"> </td>
-           <td th:text="${Category.getName()}"></td>
-           <td><a class="actions">Delete</a></td>
-            <td><a class="actions">Update</a></td>
+        <tr th:block th:each="Users : ${listuser}">
+           <td th:text="${Users.getID()}"> </td>
+           <td th:text="${Users.getFirstname()}"></td>
+           <td th:text="${Users.getLastname()}"></td>
+           <td th:text="${Users.getEmail()}"></td>
+           <td><a th:href="@{'deleteuser/'+${Users.getID()}}"  class="actions">Delete</a></td>
+            <td><a th:href="@{'updateuser/'+${Users.getID()}}" class="actions">Update</a></td>
            
         </tr>
 

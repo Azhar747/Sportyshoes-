@@ -112,7 +112,9 @@ a {
 			<th>Category</th>
 			<th>Price</th>
 			<th>Preview</th>
-        </tr>
+			<th>Delete</th>
+			<th>Update</th>
+
         <tr th:block th:each="Product : ${listprd}">
            <td th:text="${Product.getID()}"> </td>
            <td th:text="${Product.getName()}"></td>
@@ -120,7 +122,9 @@ a {
            <td th:text="${Product.getCategory().getName()}"> </td>
            <td th:text="${Product.getPrice()}"></td>
            <td  ><img class="images" th:src="@{'img/'+${Product.getImagename()}}"></td>
-           <td></td>
+           <td><a th:href="@{'deleteproduct/'+${Product.getID()}}"  class="actions">Delete</a></td>
+           <td><a th:href="@{'updateproduct/'+${Product.getID()}}" class="actions">Update</a></td>
+           
         </tr>
 
 
