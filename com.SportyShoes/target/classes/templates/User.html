@@ -23,7 +23,7 @@ th {
 table {
 	border-collapse: collapse;
 	margin-left: 205px;
-	margin-top: 40px;
+	margin-top: 30px;
 	width: 60%;
 }
 
@@ -97,6 +97,14 @@ a {
 	font-size: 13px;
 	font-weight: bold;
 }
+
+.search-btn{
+margin-left:700px;
+margin-bottom: 0xp;
+margin-top: 0px;
+width: 200px;
+height: 20px;
+}
 </style>
 </head>
 <body>
@@ -112,6 +120,11 @@ a {
 	<form action="Adduser" method="post">
 		<input class="butt" type="submit" value="Add New User">
 	</form>
+	 <form action="searchuser" method="post">
+		<input class="search-btn" type="text"  name="keyword" th:value="${keyword}" placeholder="Search User">
+		<input type="submit" value="Search">
+	</form>
+	
 	<table>
 		<tr >
 			<th>SN</th>

@@ -8,6 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.SportyShoes.Entity.Users;
 import com.SportyShoes.service.Userserivce;
@@ -24,13 +26,12 @@ public class UserController {
 		
 	}
 	@GetMapping("/User")
-	public String user(Model m) {
-		
+	public String user(Model m ) {
 		List<Users>listuser= userser.getallusers();
 		m.addAttribute("listuser", listuser);
-		
 		return "User.html";
 		}
+		
 	
 	@PostMapping("/SaveUser")
 	public String saveuser(Users user) {
@@ -40,6 +41,25 @@ public class UserController {
 		return "Saveuser.html";
 		
 	}
+	
+	@PostMapping("/searchuser")
+	public String searchuser(Model m ,@RequestParam("keyword") String keyword) {
+		if(keyword!=null) {
+			List<Users>lisUsers= userser.findbykeyword(keyword);
+			m.addAttribute("lisUsers", lisUsers);
+			return "Searchuser.html";
+		}
+		else {
+			List<Users>listuser= userser.getallusers();
+			m.addAttribute("listuser", listuser);
+			return "User.html";
+		}
+		
+		
+		
+		
+	}
+	
 	
 	
 	
