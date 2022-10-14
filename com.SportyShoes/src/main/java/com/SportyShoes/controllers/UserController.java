@@ -44,19 +44,24 @@ public class UserController {
 	
 	@PostMapping("/searchuser")
 	public String searchuser(Model m ,@RequestParam("keyword") String keyword) {
-		if(keyword!=null) {
-			List<Users>lisUsers= userser.findbykeyword(keyword);
-			m.addAttribute("lisUsers", lisUsers);
-			return "Searchuser.html";
-		}
-		else {
+		if(keyword.isEmpty()) {
+			System.out.println("the keyword is empty ");
 			List<Users>listuser= userser.getallusers();
 			m.addAttribute("listuser", listuser);
-			return "User.html";
+			
 		}
+		else {
+			System.out.println(keyword);
+			List<Users> listuser= userser.findbykeyword(keyword);
+			m.addAttribute("listuser", listuser);
+		}
+			
+		
+			return "User.html";
+	}
 		
 		
-		
+			
 		
 	}
 	
@@ -64,5 +69,3 @@ public class UserController {
 	
 	
 	
-
-}

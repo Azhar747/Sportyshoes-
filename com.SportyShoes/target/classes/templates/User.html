@@ -120,7 +120,7 @@ height: 20px;
 	<form action="Adduser" method="post">
 		<input class="butt" type="submit" value="Add New User">
 	</form>
-	 <form action="searchuser" method="post">
+	 <form th:action="@{/searchuser}" method="post">
 		<input class="search-btn" type="text"  name="keyword" th:value="${keyword}" placeholder="Search User">
 		<input type="submit" value="Search">
 	</form>

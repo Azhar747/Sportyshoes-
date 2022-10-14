@@ -29,8 +29,8 @@ public class Userserivce {
 	}
 	
 	public List<Users> findbykeyword(String keyword){
-		List<Users> searchuser = new ArrayList<>();
-		userrepo.findbykeyword(keyword).forEach(m -> searchuser.add(m));
-		return searchuser;
+		
+		return userrepo.findbykeyword(keyword);
+		
 	}
 }
