@@ -51,5 +51,6 @@ public class Shopcontrollers {
 		
 		return "viewproduct.html";
 	}
-
+	
+	
 }
