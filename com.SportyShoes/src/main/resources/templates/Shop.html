@@ -57,7 +57,7 @@ a {
 }
 
 .cart {
-	margin-left: 950px;
+	margin-left: 650px;
 	max-width: 100%;
 }
 
@@ -73,12 +73,11 @@ a {
 .grid-container2 {
 	font-family: Geneva, Arial, Helvetica, sans-serif;
 	display: grid;
-	grid-template-columns: 30% 30% 30%;
+	grid-template-columns: 20% 20% 20% 20%;
 	gap: 10px;
 	padding: 10px;
 	grid-auto-flow: row;
-	margin-left: 200px;
-
+	
 }
 
 .grid-container2>div {
@@ -90,26 +89,7 @@ a {
 	align-self: start;
 }
 
-.grid-container1 {
-	font-family: Geneva, Arial, Helvetica, sans-serif;
-	display: grid;
-	grid-template-columns: 20%;
-	gap: 10px;
-	padding: 5px;
-	width: 50%;
-	grid-auto-flow: row;
-	margin-left: 50px;
-	grid-row: 1;
-}
 
-.grid-container1>div {
-	background-color: white;
-	border-radius: 3px;
-	padding: 5px;
-	text-align: left;
-	max-width: 100%;
-	align-self: start;
-}
 
 a {
 	display: inline;
@@ -132,6 +112,13 @@ form {
 h3 {
 	margin-left: 60px;
 }
+
+.selop {
+	width: 200px;
+	height: 25px;
+	border-radius: 4px;
+	margin-left: 20px;
+}
 </style>
 </head>
 <body>
@@ -141,21 +128,28 @@ h3 {
 				style="width: 42px; height: 42px;"></a></li>
 		<li><a href="/shop">Shop</a></li>
 		<li><a href="/">Logout</a></li>
+		<li>
+
+
+			<form action="searchprdbycat " method="post">
+				<select class="selop" name="listcat">
+					<option th:each="Category : ${listcat}"
+						th:text="${Category.getName()}" th:value="${Category.getID()}"></option>
+						
+				</select>
+				<input type="submit" value="Search Category">
+			</form>
+		</li>
+
 		<li><a class="cart" href="/shop">Cart</a></li>
+
 	</ul>
 
-	<h3>Cetegories</h3>
-	<div class="grid-container1" th:each="Category : ${listcat}">
-		<div>
-			<a class="cat-links" th:href="@{'searchcat/'+${Category.getID()}}"
-				th:text="${Category.getName()}"></a>
-		</div>
-	</div>
+
 
 	<div class="grid-container2">
 
-
-		<div th:each="Product : ${listprd}">
+          <div th:each="Product : ${listprd}">
 			<img class="images" th:src="@{'img/'+${Product.getImagename()}}">
 			<p th:text="${Product.getName()}">
 			<p th:text="${Product.getDescription()}">

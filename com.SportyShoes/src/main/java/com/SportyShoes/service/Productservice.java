@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.SportyShoes.Entity.Category;
 import com.SportyShoes.Entity.Product;
 import com.SportyShoes.Repository.ProductsRepo;
 
@@ -26,5 +27,15 @@ public class Productservice {
 				
 		
 	}
+
+	
+
+	public List<Product> getprdbycat(int id) {
+		List<Product> listprd = new ArrayList<>();
+	    listprd=prdrepo.searchprd(id);
+		return listprd;
+	}
+
+	
 
 }
