@@ -39,8 +39,7 @@ public class Productcontroller {
 		listprd=prdser.getallPrd();
 		Path imgpath=Paths.get(uploadDir);
 		m.addAttribute("listprd", listprd);
-		
-		
+
 		m.addAttribute("uploadDir", imgpath);
 	    System.out.println(uploadDir);
 		return "Products.html";
