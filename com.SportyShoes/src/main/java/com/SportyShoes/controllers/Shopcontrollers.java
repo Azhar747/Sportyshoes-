@@ -41,9 +41,9 @@ public class Shopcontrollers {
 		listprd = prdser.getallPrd();
 		Path imgpath = Paths.get(uploadDir);
 		m.addAttribute("listprd", listprd);
+		System.out.println(uploadDir);
 
 		m.addAttribute("uploadDir", imgpath);
-		System.out.println(uploadDir);
 
 		return "Shop.html";
 	}
@@ -53,14 +53,13 @@ public class Shopcontrollers {
 		List<Category> listcat = new ArrayList<>();
 		listcat = catser.getallcat();
 		m.addAttribute("listcat", listcat);
-		
-		
-		List<Product> listprd = prdser.getprdbycat(id);
+
+		List<Product> listprd = new ArrayList<>();
+		listprd = prdser.getprdbyid((long) id);
 		System.out.println(listprd);
 		Path imgpath = Paths.get(uploadDir);
-		m.addAttribute("listprd", listprd);
-
 		m.addAttribute("uploadDir", imgpath);
+		m.addAttribute("listprd", listprd);
 		System.out.println(uploadDir);
 
 		return "viewproduct.html";
@@ -76,7 +75,6 @@ public class Shopcontrollers {
 
 		int id2 = id.getID();
 		List<Product> listprd = prdser.getprdbycat(id2);
-		System.out.println(listprd);
 		Path imgpath = Paths.get(uploadDir);
 		m.addAttribute("uploadDir", imgpath);
 		m.addAttribute("listprd", listprd);

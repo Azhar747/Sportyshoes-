@@ -1,20 +1,21 @@
 package com.SportyShoes.Repository;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-import com.SportyShoes.Entity.Category;
 import com.SportyShoes.Entity.Product;
 
-public interface ProductsRepo extends CrudRepository<Product, Integer>{
+public interface ProductsRepo extends CrudRepository<Product, Long>{
 	
 	@Query("from Product where category_id=:id")
 	public List<Product> searchprd(int id);
-
+   
 	
+    @Query("from Product where ID=:id")	
+	public List<Product> searchprdbyid(Long id);
 	
 	
 }

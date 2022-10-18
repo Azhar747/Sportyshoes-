@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue
-	private int ID;
+	private Long ID;
 	private String name;
 	private String Description;
 	private String imagename;
@@ -37,11 +37,11 @@ public class Product {
 	public void setWeight(double weight) {
 		this.weight = weight;
 	}
-	public int getID() {
+	public Long getID() {
 		return ID;
 	}
-	public void setID(int iD) {
-		ID = (int) iD;
+	public void setID(Long iD) {
+		ID = (Long) iD;
 	}
 	public String getName() {
 		return name;

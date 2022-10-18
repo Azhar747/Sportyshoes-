@@ -7,7 +7,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.SportyShoes.Entity.Category;
 import com.SportyShoes.Entity.Product;
 import com.SportyShoes.Repository.ProductsRepo;
 
@@ -15,33 +14,33 @@ import com.SportyShoes.Repository.ProductsRepo;
 public class Productservice {
 	@Autowired
 	ProductsRepo prdrepo;
-	
+
 	public void saveproduct(Product p) {
-		
+
 		prdrepo.save(p);
 	}
-	
+
 	public List<Product> getallPrd() {
 		List<Product> listprd = new ArrayList<>();
 		prdrepo.findAll().forEach(m -> listprd.add(m));
 		return listprd;
-				
-		
-	}
 
-	
+	}
 
 	public List<Product> getprdbycat(int id) {
 		List<Product> listprd = new ArrayList<>();
-	    listprd=prdrepo.searchprd(id);
+		listprd = prdrepo.searchprd(id);
 		return listprd;
 	}
-	public Optional<Product> getprdbyid(Integer id){
-		Optional<Product> lproduct;
-		lproduct=prdrepo.findById(id);
-		
-		return lproduct;
+
+	public List<Product> getprdbyid(Long id) {
+
+		List<Product> listprd = new ArrayList<>();
+		listprd = prdrepo.searchprdbyid(id);
+		System.out.println("from product service" + listprd);
+		System.out.println("from product service id=" + id);
+		return listprd;
+
 	}
-	
 
 }
