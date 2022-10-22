@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -81,6 +82,19 @@ public class Productcontroller {
 		
 		
 		
+	}
+	@GetMapping("/deleteProduct/{id}")
+	public String deleteproduct(@PathVariable("id") Long id) {
+		
+		prdser.removeProductById(id);
+		return "redirect:/Products";
+
+	}
+	@GetMapping("/deleteprdconfirm/{id}")
+	public String deleteprdconfirm(@PathVariable("id") int id,Model m) {
+		m.addAttribute("id", id);
+		return "deleteprdconfrim";
+
 	}
  
 }

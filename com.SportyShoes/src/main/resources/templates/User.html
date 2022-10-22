@@ -141,7 +141,7 @@ border-radius: 7px;
            <td th:text="${Users.getFirstname()}"></td>
            <td th:text="${Users.getLastname()}"></td>
            <td th:text="${Users.getEmail()}"></td>
-           <td><a th:href="@{'deleteuser/'+${Users.getID()}}"  class="actions">Delete</a></td>
+           <td><a th:href="@{'deleteuserconfirm/'+${Users.getID()}}"  class="actions">Delete</a></td>
             <td><a th:href="@{'updateuser/'+${Users.getID()}}" class="actions">Update</a></td>
            
         </tr>

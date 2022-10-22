@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.SportyShoes.Entity.Category;
 import com.SportyShoes.Entity.Product;
+import com.SportyShoes.service.CartSize;
 import com.SportyShoes.service.CatergoryService;
 import com.SportyShoes.service.Productservice;
 
@@ -42,6 +43,7 @@ public class Shopcontrollers {
 		Path imgpath = Paths.get(uploadDir);
 		m.addAttribute("listprd", listprd);
 		System.out.println(uploadDir);
+		m.addAttribute("cartCount", CartSize.cart.size());
 
 		m.addAttribute("uploadDir", imgpath);
 
@@ -54,12 +56,10 @@ public class Shopcontrollers {
 		listcat = catser.getallcat();
 		m.addAttribute("listcat", listcat);
 
-		List<Product> listprd = new ArrayList<>();
-		listprd = prdser.getprdbyid((long) id);
-		System.out.println(listprd);
+		m.addAttribute("listprd", prdser.getprdbyid((long) id).get()) ; // used .get() beacuse we used optional
+		m.addAttribute("cartCount", CartSize.cart.size());
 		Path imgpath = Paths.get(uploadDir);
 		m.addAttribute("uploadDir", imgpath);
-		m.addAttribute("listprd", listprd);
 		System.out.println(uploadDir);
 
 		return "viewproduct.html";

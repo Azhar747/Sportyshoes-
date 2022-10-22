@@ -26,6 +26,10 @@ public class CatergoryService {
 				
 		
 	}
+	public void removeCategoryById(int id) { 
+		catrepo.deleteById(id);
+		
+	}
 	
 
 

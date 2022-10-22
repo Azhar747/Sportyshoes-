@@ -33,4 +33,7 @@ public class Userserivce {
 		return userrepo.findbykeyword(keyword);
 		
 	}
+	public void removeUserById(Long id) { 
+		userrepo.deleteById(id);;
+	}
 }

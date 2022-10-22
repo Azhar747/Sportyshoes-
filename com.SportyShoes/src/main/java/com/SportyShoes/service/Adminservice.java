@@ -21,5 +21,13 @@ public class Adminservice {
 		
 		
 	}
+	
+	public void updatepass(String username, String newpass) {
+		
+		adminrepo.udpatepass(username, newpass);
+		
+		
+		
+	}
      
 }

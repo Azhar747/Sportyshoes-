@@ -33,14 +33,17 @@ public class Productservice {
 		return listprd;
 	}
 
-	public List<Product> getprdbyid(Long id) {
+	public Optional<Product> getprdbyid(Long id) {
 
-		List<Product> listprd = new ArrayList<>();
-		listprd = prdrepo.searchprdbyid(id);
+		Optional<Product> listprd ;
+		listprd = prdrepo.findById(id);
 		System.out.println("from product service" + listprd);
 		System.out.println("from product service id=" + id);
 		return listprd;
 
+	}
+	public void removeProductById(Long id) { 
+		prdrepo.deleteById(id);
 	}
 
 }
