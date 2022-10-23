@@ -30,7 +30,10 @@ public class CatergoryService {
 		catrepo.deleteById(id);
 		
 	}
-	
+	public void updateCategoryById(String name,int id) { 
+		catrepo.updatebyId(name,id);
+		
+	}
 
 
 }

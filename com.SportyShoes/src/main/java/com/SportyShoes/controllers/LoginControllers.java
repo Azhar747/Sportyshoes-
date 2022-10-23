@@ -76,33 +76,48 @@ public class LoginControllers {
 	@GetMapping("/deleteconfirm/{id}")
 	public String deleteCategorconfirm(@PathVariable("id") int id, Model m) {
 
-		
 		m.addAttribute("id", id);
 		return "deletecofirm";
 
 	}
+
 	@GetMapping("/changepass")
 	public String changepass() {
-		
+
 		return "changepass.html";
 	}
-	
+
 	@PostMapping("/confirmpass")
-	public String confirmpass(@RequestParam("oldpass") String oldpass,@RequestParam("newpass") String newpass,@RequestParam("username") String username ,Model m) {
-		
+	public String confirmpass(@RequestParam("oldpass") String oldpass, @RequestParam("newpass") String newpass,
+			@RequestParam("username") String username, Model m) {
+
 		Admin admin = aserv.logincheck(username, oldpass);
-	 if(admin==null) {
-		 
-		 return "checkpass";
-	 }
-	 else {
-		 aserv.updatepass(username,newpass);
-		 return "passchanged";
-	 }
-		
-		
-		
-		
+		if (admin == null) {
+
+			return "checkpass";
+		} else {
+			aserv.updatepass(username, newpass);
+			return "passchanged";
+		}
+
 	}
+	
+	@GetMapping("updatecat/{id}")
+	public String updatecat(@PathVariable("id") int id,Model m) {
+		
+		m.addAttribute("id", id);
+		return "updatecat.html";
+	}
+	
+	@PostMapping("/updateconfirm")
+	public String updateconfirm(@RequestParam("id") int id,@RequestParam String name) {
+		
+		catser.updateCategoryById(name, id);
+		return "Updateconfirm.html";
+	}
+	
+		
+		
+	
 
 }

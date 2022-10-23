@@ -201,16 +201,16 @@ font-size: 14px;
 			<div class="e">
 			<form action="pay" method="post">
 			<span class="billing">Billing Details:</span><br>
-			<span class="billing_body">First Name :</span><input  type="text" placeholder="Enter the firstname" required="required">
-			<span class="billing_body">Last Name :</span><input type="text" placeholder="Enter the Lastname" required="required">
-			<span class="billing_body">Country:</span> <input type="text" value="India"><br>
-			<span class="billing_body">Address 1:</span><br><input class="add" type="text" placeholder="House Number and Steet Name" required="required">
-			<span class="billing_body">Address 2:</span><br><input class="add" type="text" placeholder="Apartment or unit (Optional)">
-			<span class="billing_body">Postal Code:</span><br><input class="add" type="text" placeholder="Postal Code" required="required">
-			<span class="billing_body">Town/City:</span><br><input class="add" type="text" placeholder="City" required="required">
-			<span class="billing_body">Phone:</span><br><input class="add" type="number" placeholder="Phone Number ">
-			<span class="billing_body">Email:</span><br><input class="add" type="email" placeholder="Email Address">
-			<span class="billing_body" th:text=" 'Amount Payable :' +${total}"></span><br><input class="checkout" type="submit" value="Pay Now">
+			<span class="billing_body">First Name :</span><input  type="text" placeholder="Enter the firstname" name="firstname" required="required">
+			<span class="billing_body">Last Name :</span><input type="text" placeholder="Enter the Lastname" name="lastname"  required="required">
+			<span class="billing_body">Country:</span> <input type="text" value="India" name="country"><br>
+			<span class="billing_body">Address 1:</span><br><input class="add" type="text" name="address1" placeholder="House Number and Steet Name" required="required">
+			<span class="billing_body">Address 2:</span><br><input class="add" type="text" name="address2" placeholder="Apartment or unit (Optional)">
+			<span class="billing_body">Postal Code:</span><br><input class="add" type="text" name="postalcode" placeholder="Postal Code" required="required">
+			<span class="billing_body">Town/City:</span><br><input class="add" type="text" name="city" placeholder="City" required="required">
+			<span class="billing_body">Phone:</span><br><input class="add" type="number" name="phone"placeholder="Phone Number ">
+			<span class="billing_body">Email:</span><br><input class="add" type="email" name="email" placeholder="Email Address">
+			<span class="billing_body"  th:text=" 'Amount Payable :' +${total}"></span><br><input class="checkout" type="submit" value="Pay Now">
 			</form>
            </div>
 		</div>

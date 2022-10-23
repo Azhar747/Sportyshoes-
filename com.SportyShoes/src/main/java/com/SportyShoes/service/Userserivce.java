@@ -36,4 +36,9 @@ public class Userserivce {
 	public void removeUserById(Long id) { 
 		userrepo.deleteById(id);;
 	}
+	
+	
+	public void updateById(Long id,String firstname,String lastname,String email ) { 
+		userrepo.updateuserbyId(id,firstname,lastname,email);;
+	}
 }

@@ -75,6 +75,21 @@ public class UserController {
 
 	}
 	
+	
+	@GetMapping("updateuser/{id}")
+	public String updateuser(@PathVariable("id") int id,Model m) {
+		
+		m.addAttribute("id", id);
+		return "Updateuser.html";
+	}
+	
+	@PostMapping("/updateconfirmuser")
+	public String updateuser(@RequestParam("id") Long id,@RequestParam String firstname, String lastname,String email) {
+		
+		userser.updateById(id,firstname,lastname,email);
+		return "Updateconfirm.html";
+	}
+	
 		
 			
 		

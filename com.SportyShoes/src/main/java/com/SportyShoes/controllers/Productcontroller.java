@@ -96,5 +96,27 @@ public class Productcontroller {
 		return "deleteprdconfrim";
 
 	}
+	
+	@GetMapping("updateproduct/{id}")
+	public String updateprd(@PathVariable("id") int id,Model m) {
+		List<Category> listcat = new ArrayList<>();
+		listcat=catser.getallcat();
+		System.out.println(listcat);
+		m.addAttribute("listcat",listcat);
+		m.addAttribute("id", id);
+		return "updateProduct.html";
+	}
+	@GetMapping("/Reports")
+	public String reports(Model m) {
+		List<Product> listprd=new ArrayList<>();
+		listprd=prdser.getallPrd();
+		Path imgpath=Paths.get(uploadDir);
+		m.addAttribute("listprd", listprd);
+
+		m.addAttribute("uploadDir", imgpath);
+	    System.out.println(uploadDir);
+	
+		return "PurchaseReport.html";
+	}
  
 }

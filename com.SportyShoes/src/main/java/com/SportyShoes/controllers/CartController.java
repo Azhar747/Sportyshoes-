@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.SportyShoes.Entity.Customerinfo;
 import com.SportyShoes.Entity.Product;
 import com.SportyShoes.service.CartSize;
+import com.SportyShoes.service.Customerinforservice;
 import com.SportyShoes.service.Productservice;
 
 
@@ -20,6 +22,9 @@ public class CartController {
 
 	@Autowired
 	Productservice productService;
+	
+	@Autowired
+	Customerinforservice custserv;
 	
 	@GetMapping("veiwproduct/addToCart/{id}")
 	public String addToCart(@PathVariable int id) {
@@ -62,16 +67,27 @@ public class CartController {
 	}
 	
 	@PostMapping("/pay")
-	public String payNow(Model model) {
+	public String payNow(Model model,Customerinfo cust) {
+		cust.setAmount(CartSize.cart.stream().mapToDouble(Product::getPrice).sum());
+		custserv.savecustinfo(cust);
 		
+		Long orderid=cust.getID();
 		model.addAttribute("result","congratulations..!!,your order is now booked");
 		LocalDate localDate = LocalDate.now();
 		model.addAttribute("localDate",localDate);
 		model.addAttribute("listprd", CartSize.cart);
 		model.addAttribute("total", CartSize.cart.stream().mapToDouble(Product::getPrice).sum());
+		model.addAttribute("orderid",orderid);
 		return "pay";
 		
 		
 	}
+	@GetMapping("custreport")
+	public String salesreport(Model m) {
+	    List<Customerinfo> listcust= custserv.getallcustomer();
+	    m.addAttribute("listcust", listcust);
+		return "custreport";
+		
+}
 	
 }
